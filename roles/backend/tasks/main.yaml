@@ -38,8 +38,8 @@
     path: /app
 
 - name: copy backend service
-  ansible.builtin.copy: # copy is not workedout in roles 
-    src: backend.service
+  ansible.builtin.template: # copy is not workedout in roles, that is the reason we create template module instaed copy module will search in template folder
+    src: backend.service.j2
     dest: /etc/systemd/system/backend.service
 
 - name: install python libraries
